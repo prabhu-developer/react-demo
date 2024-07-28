@@ -23,7 +23,7 @@ export default function App() {
           products.length ?
             products.map((item) => (
               <>
-                <li>
+                <li key={item.id}>
                   <img width={200} src={item.thumbnail} />
                   {item.title}
                 </li>
