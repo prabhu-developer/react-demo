@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { getAllProducts } from './services/product.service';
 
 export default function App() {
   const [count, setCount] = useState(0);
@@ -8,14 +9,16 @@ export default function App() {
     setCount(count + 1)
   }
 
+  const getData = async () => {
+    const data = await getAllProducts()
+    console.log(data, 'dtata')
+  }
+
   useEffect(() => {
     // api start
-    fetch('https://dummyjson.com/products').then(res => res.json()).then((res) => {
-      setProducts(res.products)
-    })
+    getData()
     // api end
   }, [])
-
   return (
     <div>
       <center>

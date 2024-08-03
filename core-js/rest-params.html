@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const products = async () => {
+            return await new Promise((resolve, reject) => {
+                reject('OK')
+            })
+        }
+
+        const data = {
+            name: 'Alexia',
+            age: 24,
+            currentLocation: ['Chennai', 'ljh']
+        }
+
+        console.log({ ...data, status: true })
+
+
+        const arrays = ['A', 'B', 'C']
+
+        console.log([...arrays, ...['D', 'E', 'F']])
+
+        function myProjects(para1, ...otherParams) {
+            console.log(para1, otherParams)
+        }
+        myProjects('A', 'B', 'C', 'D')
+    </script>
+</body>
+
+</html>
