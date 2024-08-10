@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import GlobalStateList from './components/GlobalStateList';
+import { useStoreContext } from './context/storeContext';
 import { getAllProducts } from './services/product.service';
 
 export default function App() {
+  const { user } = useStoreContext()
+
   const [count, setCount] = useState(0);
   const [products, setProducts] = useState([]);
 
@@ -21,6 +25,7 @@ export default function App() {
   }, [])
   return (
     <div>
+      <h1>{user.firstName} {user.lastName}</h1>
       <center>
         {
           products.length ?
@@ -37,6 +42,7 @@ export default function App() {
         <h1>{count}</h1>
         <button onClick={handleClick}>Add +</button>
       </center>
+      <GlobalStateList />
     </div>
   )
 }
